@@ -5,16 +5,20 @@
   <a href="https://oaln04.xyz" target="_blank">
     <img src="https://img.shields.io/badge/🌐%20Portfolio-Visit-purple?style=for-the-badge" />
   </a>
+
   <a href="https://www.linkedin.com/in/oaln04/" target="_blank">
     <img src="https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin" />
   </a>
+
   <a href="mailto:oaln2004@gmail.com">
     <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" />
   </a>
+
   <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank">
     <img src="https://img.shields.io/badge/Resume-Download-green?style=for-the-badge&logo=adobeacrobatreader" />
   </a>
 </p>
+
 
 ---
 
