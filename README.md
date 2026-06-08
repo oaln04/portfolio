@@ -46,6 +46,10 @@
 - **FPGA 4×4 Multiplier (VHDL)**  
   → Designed and deployed on DE2-115 FPGA board  
 
+### 🔹 Web Applications
+- **World Clock**  
+  → Real-time timezone application with live clock updates, day/night indicators, and responsive design  
+
 ### 🔹 Software
 - **Sorting Algorithms Benchmark (C++)**  
   → Measured and compared performance across algorithms  
