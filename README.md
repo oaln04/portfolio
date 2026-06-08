@@ -11,16 +11,19 @@
   <a href="mailto:oaln2004@gmail.com">
     <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" />
   </a>
+  <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank">
+    <img src="https://img.shields.io/badge/Resume-Download-green?style=for-the-badge&logo=adobeacrobatreader" />
+  </a>
 </p>
 
 ---
 
 ## 🧠 About Me
 
-- 🎓 Computer Engineering @ AURAK (GPA: 3.66)
-- 💻 Passionate about **systems, embedded, and low-level programming**
-- ⚙️ Love working with **Linux, ARM, and hardware-software integration**
-- 🚀 Currently building real-world projects and improving my software engineering skills
+- 🎓 Computer Engineering @ AURAK (GPA: 3.66)  
+- 💻 Passionate about **systems, embedded systems, and low-level programming**  
+- ⚙️ Strong interest in **Linux internals, ARM architecture, and hardware-software integration**  
+- 🚀 Currently building projects and sharpening software engineering skills  
 
 ---
 
@@ -32,15 +35,15 @@
 
 ### 🔹 Systems Programming
 - **Linux Kernel Internals Analysis**  
-  → Explored scheduling, memory, futex, and system calls  
+  → Explored scheduling, memory management, futex, and system calls  
 
 ### 🔹 Hardware Design
 - **FPGA 4×4 Multiplier (VHDL)**  
-  → Designed & deployed on DE2-115 board  
+  → Designed and deployed on DE2-115 FPGA board  
 
 ### 🔹 Software
 - **Sorting Algorithms Benchmark (C++)**  
-  → Performance comparison with timing instrumentation  
+  → Measured and compared performance across algorithms  
 
 ---
 
@@ -52,4 +55,3 @@ Systems: Linux, Git, VirtualBox
 Embedded: STM32, ARM Cortex-M4, ADC, GPIO
 Tools: Wireshark, Cisco Packet Tracer, Quartus
 Cloud/CRM: Salesforce
-``
