@@ -2,23 +2,24 @@
 <h3 align="center">Computer Engineering Student | Systems & Software Engineer</h3>
 
 <p align="center">
+
   <a href="https://oaln04.xyz" target="_blank">
-    <img src="https://img.shields.io/badge/🌐%20Portfolio-Visit-purple?style=for-the-badge" />
+    <img src="https://img.shields.io/badge/🌐%20Portfolio-Visit-7c3aed?style=for-the-badge&logo=vercel&logoColor=white" />
   </a>
 
   <a href="https://www.linkedin.com/in/oaln04/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin" />
+    <img src="https://img.shields.io/badge/LinkedIn-Profile-9333ea?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
 
   <a href="mailto:oaln2004@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail" />
+    <img src="https://img.shields.io/badge/Email-Contact-a855f7?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
 
   <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank">
-    <img src="https://img.shields.io/badge/Resume-Download-green?style=for-the-badge&logo=adobeacrobatreader" />
+    <img src="https://img.shields.io/badge/Resume-Download-c084fc?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" />
   </a>
-</p>
 
+</p>
 
 ---
 

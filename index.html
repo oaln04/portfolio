@@ -5,56 +5,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Omar Al Nuaimi</title>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header class="hero">
-  <h1>Omar Al Nuaimi</h1>
-  <p>Systems | Embedded | Software Engineer</p>
+<nav class="nav">
+  <div class="nav-brand">OA</div>
+  <button id="toggle" aria-label="Toggle theme">🌙</button>
+</nav>
 
-  <div class="buttons">
-    <a href="https://oaln04.xyz" class="btn">Portfolio</a>
-    <a href="https://www.linkedin.com/in/oaln04/" class="btn">LinkedIn</a>
-    <a href="mailto:oaln2004@gmail.com" class="btn">Contact</a>
-    <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank" class="btn highlight">Resume</a>
+<header class="hero">
+  <div class="hero-content">
+    <div class="badge">Available for opportunities</div>
+    <h1>Omar Al Nuaimi</h1>
+    <p class="hero-subtitle">Systems · Embedded · Software Engineer</p>
+    <p class="hero-desc">Computer Engineering student passionate about low-level systems, embedded design, and performance-driven software.</p>
+    
+    <div class="buttons">
+      <a href="https://oaln04.xyz" class="btn btn-primary">Portfolio</a>
+      <a href="https://www.linkedin.com/in/oaln04/" class="btn btn-secondary">LinkedIn</a>
+      <a href="mailto:oaln2004@gmail.com" class="btn btn-secondary">Contact</a>
+      <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank" class="btn btn-highlight">Resume ↗</a>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <span>Scroll to explore</span>
   </div>
 </header>
 
 <section class="about">
-  <h2>About Me</h2>
-  <p>
-    Computer Engineering student passionate about low-level systems, embedded design, and performance-driven software.
-  </p>
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2>About Me</h2>
+  </div>
+  <div class="about-content">
+    <p>
+      I build things that run close to the metal. From real-time embedded systems to kernel-level optimizations, 
+      I thrive in the space where hardware meets software. Currently pursuing Computer Engineering with a focus 
+      on systems architecture and low-level programming.
+    </p>
+    <div class="skills">
+      <span class="skill-tag">C/C++</span>
+      <span class="skill-tag">Embedded C</span>
+      <span class="skill-tag">VHDL</span>
+      <span class="skill-tag">Linux Kernel</span>
+      <span class="skill-tag">STM32</span>
+      <span class="skill-tag">FPGA</span>
+    </div>
+  </div>
 </section>
 
 <section class="projects">
-  <h2>Projects</h2>
-
-  <div class="card">
-    <h3>STM32 Sound System</h3>
-    <p>Real-time clap detection with <10ms latency using ADC + GPIO.</p>
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2>Featured Projects</h2>
   </div>
+  
+  <div class="projects-grid">
+    <article class="card">
+      <div class="card-header">
+        <div class="card-icon">🔊</div>
+        <div class="card-links">
+          <a href="#" aria-label="View project">↗</a>
+        </div>
+      </div>
+      <h3>STM32 Sound System</h3>
+      <p>Real-time clap detection system with sub-10ms latency using ADC sampling and GPIO control on STM32 microcontrollers.</p>
+      <div class="card-tags">
+        <span>STM32</span>
+        <span>ADC</span>
+        <span>Real-time</span>
+      </div>
+    </article>
 
-  <div class="card">
-    <h3>Linux Kernel Analysis</h3>
-    <p>Deep dive into scheduling, memory management, and system calls.</p>
+    <article class="card">
+      <div class="card-header">
+        <div class="card-icon">🐧</div>
+        <div class="card-links">
+          <a href="#" aria-label="View project">↗</a>
+        </div>
+      </div>
+      <h3>Linux Kernel Analysis</h3>
+      <p>Comprehensive deep dive into process scheduling algorithms, memory management subsystems, and system call implementations.</p>
+      <div class="card-tags">
+        <span>Linux</span>
+        <span>C</span>
+        <span>Kernel</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header">
+        <div class="card-icon">⚡</div>
+        <div class="card-links">
+          <a href="#" aria-label="View project">↗</a>
+        </div>
+      </div>
+      <h3>FPGA Multiplier</h3>
+      <p>Hardware-level multiplier architecture designed in VHDL and synthesized for FPGA deployment with timing optimization.</p>
+      <div class="card-tags">
+        <span>VHDL</span>
+        <span>FPGA</span>
+        <span>Digital Design</span>
+      </div>
+    </article>
   </div>
-
-  <div class="card">
-    <h3>FPGA Multiplier</h3>
-    <p>Hardware-level multiplier built using VHDL and deployed on FPGA.</p>
-  </div>
-
 </section>
 
-<button id="toggle">🌙</button>
+<footer>
+  <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
+</footer>
 
 <script>
 const toggle = document.getElementById("toggle");
+const body = document.body;
+
 toggle.onclick = () => {
-  document.body.classList.toggle("light");
+  body.classList.toggle("light");
+  toggle.textContent = body.classList.contains("light") ? "☀️" : "🌙";
 };
+
+// Update year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Intersection Observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section, .card').forEach(el => {
+  el.classList.add('fade-in');
+  observer.observe(el);
+});
 </script>
 
 </body>
