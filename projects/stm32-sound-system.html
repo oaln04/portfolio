@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>STM32 Sound System — Omar Al Nuaimi</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<<nav class="nav">
+  <a href="../index.html" class="nav-brand">← Back</a>
+  <button id="toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<<main class="project-page">
+  <div class="project-hero">
+    <span class="project-tag">Embedded Systems</span>
+    <h1>STM32 Sound System</h1>
+    <p class="project-subtitle">Hands-Free Light Switch — Real-time clap detection with &lt;10ms latency</p>
+  </div>
+
+  <div class="project-content">
+    <section class="project-section">
+      <h2>Overview</h2>
+      <p>A sound-controlled lighting system built on the STM32L476VG Discovery board. The system detects acoustic events (hand claps) and toggles an onboard LED in real-time, demonstrating the integration of analog input processing, digital decision-making, and output control within a single embedded application.</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Technical Specifications</h2>
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4>Microcontroller</h4>
+          <p>STM32L476VG (ARM Cortex-M4)</p>
+        </div>
+        <div class="spec-card">
+          <h4>ADC Resolution</h4>
+          <p>12-bit (0-4095 range)</p>
+        </div>
+        <div class="spec-card">
+          <h4>Response Time</h4>
+          <p>&lt;10ms</p>
+        </div>
+        <div class="spec-card">
+          <h4>Sensor</h4>
+          <p>Gravity Analog Sound Sensor</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Hardware Architecture</h2>
+      <p>The sound sensor produces an analog voltage proportional to sound intensity, connected to PA1 (ADC1_IN6). The STM32 converts this signal using continuous conversion mode with a 47.5-cycle sampling time. When the ADC value exceeds the calibrated threshold of 1000, the system toggles the red LED on PB2.</p>
+      
+      <div class="info-box">
+        <h4>Pin Connections</h4>
+        <ul>
+          <li><strong>VCC</strong> → 3.3V Output</li>
+          <li><strong>GND</strong> → Common Ground</li>
+          <li><strong>Signal</strong> → PA1 (ADC1_IN6)</li>
+          <li><strong>LED</strong> → PB2 (GPIO Output)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Calibration</h2>
+      <p>Ambient noise levels were measured in a quiet environment, yielding typical ADC readings of 100-300. A hand clap produced readings between 2500-3800. The threshold was set to 1000 — safely above ambient noise but well below typical clap intensity. An oscilloscope confirmed the sensor returns to baseline within 50-100ms after a sound event.</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Software Implementation</h2>
+      <p>The firmware uses STM32 HAL with a polling-based approach inside a <code>while(1)</code> loop. A 250ms software debounce prevents multiple toggles from a single clap event. The ADC operates in continuous conversion mode with right-aligned 12-bit data, ensuring zero wait time for samples.</p>
+      
+      <div class="code-block">
+        <pre>while (1) {
+    if (HAL_ADC_PollForConversion(&hadc1, 10) == HAL_OK) {
+        sound_level = HAL_ADC_GetValue(&hadc1);
+        if (sound_level > threshold) {
+            HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_2);
+            HAL_Delay(250);  // Debounce
+        }
+    }
+}</pre>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Team & Course</h2>
+      <p><strong>Course:</strong> CENG 315 — Embedded Systems Design<br>
+      <strong>Instructor:</strong> Dr. Arfan Ghani<br>
+      <strong>Team:</strong> Alaa Eddin, Ali Alhaeri, Mariam Hemeida, Mustafa Turani, Omar Al Nuaimi, Zaineh Khawaja</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Full Report</h2>
+      <p>View the complete technical report below:</p>
+      <div class="pdf-container">
+        <embed src="../CENG_315_Project_Report_1__Copy_.pdf" type="application/pdf" width="100%" height="800px" />
+        <p class="pdf-fallback">If the PDF doesn't load, <a href="../CENG_315_Project_Report_1__Copy_.pdf" target="_blank">open it directly ↗</a></p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<<footer>
+  <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
+</footer>
+
+<script>
+const toggle = document.getElementById("toggle");
+const body = document.body;
+toggle.onclick = () => {
+  body.classList.toggle("light");
+  toggle.textContent = body.classList.contains("light") ? "☀️" : "🌙";
+};
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

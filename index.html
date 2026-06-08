@@ -11,12 +11,12 @@
 
 <body>
 
-<nav class="nav">
+<<nav class="nav">
   <div class="nav-brand">OA</div>
   <button id="toggle" aria-label="Toggle theme">🌙</button>
 </nav>
 
-<header class="hero">
+<<header class="hero">
   <div class="hero-content">
     <div class="badge">Available for opportunities</div>
     <h1>Omar Al Nuaimi</h1>
@@ -24,10 +24,10 @@
     <p class="hero-desc">Computer Engineering student passionate about low-level systems, embedded design, and performance-driven software.</p>
     
     <div class="buttons">
-      <a href="https://oaln04.xyz" class="btn btn-primary">Portfolio</a>
-      <a href="https://www.linkedin.com/in/oaln04/" class="btn btn-secondary">LinkedIn</a>
-      <a href="mailto:oaln2004@gmail.com" class="btn btn-secondary">Contact</a>
-      <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank" class="btn btn-highlight">Resume ↗</a>
+      <a href="https://oaln04.xyz" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Portfolio ↗</a>
+      <a href="https://www.linkedin.com/in/oaln04/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
+      <a href="mailto:oaln2004@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Contact ↗</a>
+      <a href="https://raw.githubusercontent.com/oaln04/portfolio/main/Omar_Al_Nuaimi_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-highlight">Resume ↗</a>
     </div>
   </div>
   
@@ -68,57 +68,57 @@
   </div>
   
   <div class="projects-grid">
-    <article class="card">
-      <div class="card-header">
-        <div class="card-icon">🔊</div>
-        <div class="card-links">
-          <a href="#" aria-label="View project">↗</a>
+    <a href="projects/stm32-sound-system.html" class="card-link">
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🔊</div>
+          <div class="card-arrow">↗</div>
         </div>
-      </div>
-      <h3>STM32 Sound System</h3>
-      <p>Real-time clap detection system with sub-10ms latency using ADC sampling and GPIO control on STM32 microcontrollers.</p>
-      <div class="card-tags">
-        <span>STM32</span>
-        <span>ADC</span>
-        <span>Real-time</span>
-      </div>
-    </article>
+        <h3>STM32 Sound System</h3>
+        <p>Real-time clap detection system with sub-10ms latency using ADC sampling and GPIO control on STM32 microcontrollers.</p>
+        <div class="card-tags">
+          <span>STM32</span>
+          <span>ADC</span>
+          <span>Real-time</span>
+        </div>
+      </article>
+    </a>
 
-    <article class="card">
-      <div class="card-header">
-        <div class="card-icon">🐧</div>
-        <div class="card-links">
-          <a href="#" aria-label="View project">↗</a>
+    <a href="projects/linux-kernel-analysis.html" class="card-link">
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">🐧</div>
+          <div class="card-arrow">↗</div>
         </div>
-      </div>
-      <h3>Linux Kernel Analysis</h3>
-      <p>Comprehensive deep dive into process scheduling algorithms, memory management subsystems, and system call implementations.</p>
-      <div class="card-tags">
-        <span>Linux</span>
-        <span>C</span>
-        <span>Kernel</span>
-      </div>
-    </article>
+        <h3>Linux Kernel Analysis</h3>
+        <p>Comprehensive deep dive into process scheduling algorithms, memory management subsystems, and system call implementations.</p>
+        <div class="card-tags">
+          <span>Linux</span>
+          <span>C</span>
+          <span>Kernel</span>
+        </div>
+      </article>
+    </a>
 
-    <article class="card">
-      <div class="card-header">
-        <div class="card-icon">⚡</div>
-        <div class="card-links">
-          <a href="#" aria-label="View project">↗</a>
+    <a href="projects/fpga-multiplier.html" class="card-link">
+      <article class="card">
+        <div class="card-header">
+          <div class="card-icon">⚡</div>
+          <div class="card-arrow">↗</div>
         </div>
-      </div>
-      <h3>FPGA Multiplier</h3>
-      <p>Hardware-level multiplier architecture designed in VHDL and synthesized for FPGA deployment with timing optimization.</p>
-      <div class="card-tags">
-        <span>VHDL</span>
-        <span>FPGA</span>
-        <span>Digital Design</span>
-      </div>
-    </article>
+        <h3>FPGA Multiplier</h3>
+        <p>Hardware-level multiplier architecture designed in VHDL and synthesized for FPGA deployment with timing optimization.</p>
+        <div class="card-tags">
+          <span>VHDL</span>
+          <span>FPGA</span>
+          <span>Digital Design</span>
+        </div>
+      </article>
+    </a>
   </div>
 </section>
 
-<footer>
+<<footer>
   <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
 </footer>
 
@@ -131,10 +131,8 @@ toggle.onclick = () => {
   toggle.textContent = body.classList.contains("light") ? "☀️" : "🌙";
 };
 
-// Update year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Intersection Observer for scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {

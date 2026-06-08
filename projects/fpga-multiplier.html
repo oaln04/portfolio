@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FPGA Multiplier — Omar Al Nuaimi</title>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<<nav class="nav">
+  <a href="../index.html" class="nav-brand">← Back</a>
+  <button id="toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<<main class="project-page">
+  <div class="project-hero">
+    <span class="project-tag">Digital Design</span>
+    <h1>FPGA Multiplier</h1>
+    <p class="project-subtitle">Hardware-level multiplier built using VHDL</p>
+  </div>
+
+  <div class="project-content">
+    <section class="project-section">
+      <h2>Coming Soon</h2>
+      <p>Full project report and documentation will be added here once completed. This project involves designing a hardware-level multiplier architecture in VHDL and deploying it on FPGA with timing optimization.</p>
+      
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4>Language</h4>
+          <p>VHDL</p>
+        </div>
+        <div class="spec-card">
+          <h4>Platform</h4>
+          <p>FPGA</p>
+        </div>
+        <div class="spec-card">
+          <h4>Focus</h4>
+          <p>Timing Optimization</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<<footer>
+  <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
+</footer>
+
+<script>
+const toggle = document.getElementById("toggle");
+const body = document.body;
+toggle.onclick = () => {
+  body.classList.toggle("light");
+  toggle.textContent = body.classList.contains("light") ? "☀️" : "🌙";
+};
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
