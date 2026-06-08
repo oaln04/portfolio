@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omar Al Nuaimi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Omar Al Nuaimi</h1>
-        <p>Computer Engineering Student</p>
-    </header>
+    <div class="container">
 
-    <section>
-        <h2>About Me</h2>
-        <p>I build systems, embedded projects, and software.</p>
-    </section>
+        <header>
+            <h1>Omar Al Nuaimi</h1>
+            <p>Computer Engineering Student | Systems & Software</p>
 
-    <section>
-        <h2>Projects</h2>
-        <ul>
-            <li>STM32 Sound-Activated System</li>
-            <li>Linux Kernel Analysis</li>
-            <li>FPGA Multiplier Design</li>
-        </ul>
-    </section>
+            <div class="buttons">
+                <a href="https://www.linkedin.com/in/oaln04/" target="_blank" class="btn">LinkedIn</a>
+                <a href="mailto:oaln2004@gmail.com" class="btn contact">Contact Me</a>
+            </div>
 
-    <section>
-        <h2>Contact</h2>
-        <p>Email: oaln2004@gmail.com</p>
-    </section>
+            <button id="themeToggle">Toggle Theme</button>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <p>I build embedded systems, work with low-level programming, and explore Linux internals.</p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>STM32 Sound System</h3>
+                    <p>Real-time clap detection with ADC + GPIO control.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Linux Kernel Analysis</h3>
+                    <p>Deep dive into scheduling, memory, and system calls.</p>
+                </div>
+
+                <div class="card">
+                    <h3>FPGA Multiplier</h3>
+                    <p>VHDL-based hardware multiplier with simulation + testing.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+<script>
+    const toggle = document.getElementById("themeToggle");
+
+    toggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+    });
+</script>
 
 </body>
 </html>
