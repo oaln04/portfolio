@@ -146,6 +146,9 @@ const body = document.body;
 const THEME_KEY = 'theme-preference';
 
 async function getLocationAndSetTheme() {
+  const manualPreference = localStorage.getItem(THEME_KEY);
+  let isDay = false;
+  
   try {
     // Get user's timezone
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -168,24 +171,33 @@ async function getLocationAndSetTheme() {
       const now = new Date();
       
       // Check if current time is between sunrise and sunset
-      const isDay = now >= sunrise && now < sunset;
-      
-      // Apply theme based on whether it's day or night
-      // Store user preference if they manually override
-      const manualPreference = localStorage.getItem(THEME_KEY);
-      
-      if (!manualPreference) {
-        if (isDay) {
-          body.classList.add('light');
-          toggle.textContent = '☀️';
-        } else {
-          body.classList.remove('light');
-          toggle.textContent = '🌙';
-        }
-      }
+      isDay = now >= sunrise && now < sunset;
     }
   } catch (error) {
-    console.warn('Could not determine theme based on sun position:', error);
+    // Fallback: use simple time-based check (6 AM - 6 PM = daytime)
+    const hour = new Date().getHours();
+    isDay = hour >= 6 && hour < 18;
+    console.warn('Using fallback time-based theme detection:', error);
+  }
+  
+  // Apply theme based on whether it's day or night
+  if (!manualPreference) {
+    if (isDay) {
+      body.classList.add('light');
+      toggle.textContent = '☀️';
+    } else {
+      body.classList.remove('light');
+      toggle.textContent = '🌙';
+    }
+  } else {
+    // Respect stored preference and update icon
+    if (manualPreference === 'light') {
+      body.classList.add('light');
+      toggle.textContent = '☀️';
+    } else {
+      body.classList.remove('light');
+      toggle.textContent = '🌙';
+    }
   }
 }
 
