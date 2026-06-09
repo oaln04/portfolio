@@ -24,16 +24,17 @@
       <p class="project-subtitle">Captain & primary setter — team leadership and strategy.</p>
     </header>
 
-    <div class="hero-image-container">
-      <img src="images/team.jpg" alt="AURAK Men's Volleyball - team photo" class="hero-image">
-    </div>
-
-    <div class="project-content">
-      <section class="project-section">
+    <div class="hero-overview">
+      <div class="hero-image-container">
+        <img src="images/team.jpg" alt="AURAK Men's Volleyball - team photo" class="hero-image">
+      </div>
+      <section class="project-section overview-section">
         <h2>Overview</h2>
         <p>I serve as the captain and primary setter for the American University of Ras Al Khaimah (AURAK) men's volleyball team. As the setter and tactical mastermind, I coordinate plays, call the offense, and build the team's in-game strategy.</p>
       </section>
+    </div>
 
+    <div class="project-content">
       <section class="project-section">
         <h2>Highlights</h2>
         <div class="info-box">
@@ -52,8 +53,6 @@
 
       <section class="project-section">
         <h2>Team Feed</h2>
-        <p>Below is a quick, lightweight preview of our feed. Click any image to open the post or follow the team on Instagram.</p>
-
         <div class="instagram-embed">
           <iframe src="https://snapwidget.com/embed/1124978" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" title="Posts from Instagram"></iframe>
         </div>
@@ -105,6 +104,22 @@
       observer.observe(el);
     });
   })();
+
+  // Slide animation for the hero image when overview is visible
+  (function() {
+    const imageContainer = document.querySelector('.hero-image-container');
+    const overview = document.querySelector('.overview-section');
+    if (!imageContainer || !overview) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        imageContainer.classList.toggle('active', entry.isIntersecting);
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(overview);
+  })();
+
   document.getElementById('year')?.textContent = new Date().getFullYear();
   </script>
   
