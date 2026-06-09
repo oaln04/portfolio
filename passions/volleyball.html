@@ -5,9 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Volleyball — AURAK Men's Team | Omar Al Nuaimi</title>
   <link rel="stylesheet" href="../style.css"/>
+  <link rel="stylesheet" href="passions.css"/>
 </head>
 
 <body>
+
+<nav class="nav">
+  <div class="nav-brand">OAN</div>
+  <button id="toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
   <main class="project-page">
     <a href="../index.html" class="back-link">← Back</a>
 
@@ -66,5 +73,44 @@
       </section>
     </div>
   </main>
+  <script>
+  // Theme toggle (minimal, mirror of homepage behaviour)
+  (function() {
+    const toggle = document.getElementById('toggle');
+    const body = document.body;
+    const THEME_KEY = 'theme-preference';
+
+    const pref = localStorage.getItem(THEME_KEY);
+    if (pref === 'light') {
+      body.classList.add('light');
+      if (toggle) toggle.textContent = '☀️';
+    } else {
+      body.classList.remove('light');
+      if (toggle) toggle.textContent = '🌙';
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('light');
+        toggle.textContent = body.classList.contains('light') ? '☀️' : '🌙';
+        localStorage.setItem(THEME_KEY, body.classList.contains('light') ? 'light' : 'dark');
+      });
+    }
+  })();
+
+  // Simple fade-in observer for project sections and cards
+  (function() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-section, .card').forEach(el => {
+      el.classList.add('fade-in');
+      observer.observe(el);
+    });
+  })();
+  </script>
 </body>
 </html>

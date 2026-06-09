@@ -1,0 +1,44 @@
+/* Overrides and page-specific tweaks for passions pages */
+
+/* Ensure project pages account for fixed nav */
+.project-page {
+  padding-top: 6.5rem;
+}
+
+/* Back link styled like the site's secondary buttons but smaller */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.back-link:hover {
+  background: rgba(139, 92, 246, 0.06);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Place the nav-brand clearly and ensure contrast on project pages */
+.nav {
+  background: rgba(10, 10, 15, 0.85);
+}
+
+.nav-brand {
+  color: var(--accent);
+}
+
+/* Small screens: ensure back link full width */
+@media (max-width: 768px) {
+  .back-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
