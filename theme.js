@@ -33,22 +33,23 @@ async function getLocationAndSetTheme() {
   }
 
   const toggleEl = getToggle();
+  const html = document.documentElement;
+  function applyLight(on) {
+    if (on) {
+      body.classList.add('light');
+      html.classList.add('light');
+      if (toggleEl) toggleEl.textContent = '☀️';
+    } else {
+      body.classList.remove('light');
+      html.classList.remove('light');
+      if (toggleEl) toggleEl.textContent = '🌙';
+    }
+  }
+
   if (!manualPreference) {
-    if (isDay) {
-      body.classList.add('light');
-      if (toggleEl) toggleEl.textContent = '☀️';
-    } else {
-      body.classList.remove('light');
-      if (toggleEl) toggleEl.textContent = '🌙';
-    }
+    applyLight(isDay);
   } else {
-    if (manualPreference === 'light') {
-      body.classList.add('light');
-      if (toggleEl) toggleEl.textContent = '☀️';
-    } else {
-      body.classList.remove('light');
-      if (toggleEl) toggleEl.textContent = '🌙';
-    }
+    applyLight(manualPreference === 'light');
   }
 }
 
@@ -56,10 +57,24 @@ function setThemeToggle() {
   const toggleEl = getToggle();
   if (!toggleEl) return;
 
+  // Ensure button text matches current theme immediately
+  const isLightNow = body.classList.contains('light') || document.documentElement.classList.contains('light');
+  toggleEl.textContent = isLightNow ? '☀️' : '🌙';
+
   toggleEl.onclick = () => {
-    body.classList.toggle('light');
-    toggleEl.textContent = body.classList.contains('light') ? '☀️' : '🌙';
-    localStorage.setItem(THEME_KEY, body.classList.contains('light') ? 'light' : 'dark');
+    const nowIsLight = body.classList.contains('light') || document.documentElement.classList.contains('light');
+    // Toggle both html and body classes so head-prep script and runtime stay in sync
+    if (nowIsLight) {
+      body.classList.remove('light');
+      document.documentElement.classList.remove('light');
+      toggleEl.textContent = '🌙';
+      localStorage.setItem(THEME_KEY, 'dark');
+    } else {
+      body.classList.add('light');
+      document.documentElement.classList.add('light');
+      toggleEl.textContent = '☀️';
+      localStorage.setItem(THEME_KEY, 'light');
+    }
   };
 }
 
@@ -70,8 +85,11 @@ function setYear() {
   }
 }
 
-window.addEventListener('DOMContentLoaded', async () => {
-  await getLocationAndSetTheme();
+window.addEventListener('DOMContentLoaded', () => {
+  // Attach toggle handler and year immediately to allow instant interaction
   setThemeToggle();
   setYear();
+
+  // Perform location-based theme check asynchronously (may involve network)
+  getLocationAndSetTheme().catch(() => {});
 });
