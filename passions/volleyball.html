@@ -12,18 +12,21 @@
 
 <body>
  
-<<nav class="nav">
+<nav class="nav">
   <a href="../index.html" class="nav-brand">← Back</a>
   <button id="toggle" aria-label="Toggle theme">🌙</button>
 </nav>
 
-  <<main class="project-page">
-
+  <main class="project-page">
     <header class="project-hero">
       <span class="project-tag">Passion</span>
       <h1>Volleyball — AURAK Men's Team</h1>
       <p class="project-subtitle">Captain & primary setter — team leadership and strategy.</p>
     </header>
+
+    <div class="hero-image-container">
+      <img src="images/team.jpg" alt="AURAK Men's Volleyball - team photo" class="hero-image">
+    </div>
 
     <div class="project-content">
       <section class="project-section">
@@ -49,23 +52,13 @@
 
       <section class="project-section">
         <h2>Team Feed</h2>
-        <div class="projects-grid">
-          <a href="https://www.instagram.com/aurakmvb" target="_blank" rel="noopener noreferrer" class="card-link">
-            <article class="card">
-              <div class="card-header">
-                <div class="card-icon">📸</div>
-                <div class="card-arrow">↗</div>
-              </div>
-              <h3>AURAK Men's Volleyball — Instagram</h3>
-              <p>Follow match highlights, training clips, and behind-the-scenes moments from our team.</p>
-              <div class="card-tags">
-                <span>Matches</span>
-                <span>Highlights</span>
-                <span>Team</span>
-              </div>
-            </article>
-          </a>
+        <p>Below is a quick, lightweight preview of our feed. Click any image to open the post or follow the team on Instagram.</p>
+
+        <div class="instagram-embed">
+          <iframe src="https://snapwidget.com/embed/1124978" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" title="Posts from Instagram"></iframe>
         </div>
+
+        <a class="follow-ig" href="https://www.instagram.com/aurakmvb" target="_blank" rel="noopener noreferrer">Follow @aurakmvb ↗</a>
       </section>
 
       <section class="project-section">
@@ -115,7 +108,7 @@
   document.getElementById('year')?.textContent = new Date().getFullYear();
   </script>
   
-<<footer>
+<footer>
   <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
 </footer>
 </body>
