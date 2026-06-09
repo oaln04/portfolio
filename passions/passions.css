@@ -67,18 +67,20 @@
   margin-bottom: 2rem;
 }
 
-.hero-image-container {
+..hero-image-container {
   margin: 0;
   width: 100%;
   max-width: 460px;
   transform: translateX(80px);
   opacity: 0;
-  transition: transform 0.8s ease, opacity 0.8s ease;
+  visibility: hidden;
+  transition: transform 0.8s ease, opacity 0.8s ease, visibility 0.3s ease;
 }
 
-.hero-image-container.active {
+.hero-image-container.visible {
   transform: translateX(0);
   opacity: 1;
+  visibility: visible;
 }
 
 .hero-image {

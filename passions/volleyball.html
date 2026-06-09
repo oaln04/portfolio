@@ -53,10 +53,6 @@
 
       <section class="project-section">
         <h2>Team Feed</h2>
-        <div class="instagram-embed">
-          <iframe src="https://snapwidget.com/embed/1124978" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" title="Posts from Instagram"></iframe>
-        </div>
-
         <a class="follow-ig" href="https://www.instagram.com/aurakmvb" target="_blank" rel="noopener noreferrer">Follow @aurakmvb ↗</a>
       </section>
 
@@ -105,19 +101,18 @@
     });
   })();
 
-  // Slide animation for the hero image when overview is visible
+  // Slide animation for the hero image when it enters the viewport
   (function() {
     const imageContainer = document.querySelector('.hero-image-container');
-    const overview = document.querySelector('.overview-section');
-    if (!imageContainer || !overview) return;
+    if (!imageContainer) return;
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        imageContainer.classList.toggle('active', entry.isIntersecting);
+        imageContainer.classList.toggle('visible', entry.isIntersecting);
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.15 });
 
-    observer.observe(overview);
+    observer.observe(imageContainer);
   })();
 
   document.getElementById('year')?.textContent = new Date().getFullYear();
