@@ -47,8 +47,8 @@
   → Designed and deployed on DE2-115 FPGA board  
 
 ### 🔹 Web Applications
-- **World Clock**  
-  → Real-time timezone application with live clock updates, day/night indicators, and responsive design  
+- **[World Clock](https://github.com/oaln04/world-clock)**  
+  → Real-time timezone application with live clock updates, day/night indicators, and responsive design
 
 ### 🔹 Software
 - **Sorting Algorithms Benchmark (C++)**  
