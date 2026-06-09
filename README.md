@@ -30,6 +30,10 @@
 - ⚙️ Strong interest in **Linux internals, ARM architecture, and hardware-software integration**  
 - 🚀 Currently building projects and sharpening software engineering skills  
 
+## 🏐 Passionate About
+
+- Read more on my volleyball journey on the **[Passionate About](passions/volleyball.html)** page.
+
 ---
 
 ## 🚀 Projects
