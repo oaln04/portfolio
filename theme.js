@@ -1,6 +1,9 @@
-const toggle = document.getElementById("toggle");
 const body = document.body;
 const THEME_KEY = 'theme-preference';
+
+function getToggle() {
+  return document.getElementById('toggle');
+}
 
 async function getLocationAndSetTheme() {
   const manualPreference = localStorage.getItem(THEME_KEY);
@@ -29,31 +32,33 @@ async function getLocationAndSetTheme() {
     console.warn('Using fallback time-based theme detection:', error);
   }
 
+  const toggleEl = getToggle();
   if (!manualPreference) {
     if (isDay) {
       body.classList.add('light');
-      if (toggle) toggle.textContent = '☀️';
+      if (toggleEl) toggleEl.textContent = '☀️';
     } else {
       body.classList.remove('light');
-      if (toggle) toggle.textContent = '🌙';
+      if (toggleEl) toggleEl.textContent = '🌙';
     }
   } else {
     if (manualPreference === 'light') {
       body.classList.add('light');
-      if (toggle) toggle.textContent = '☀️';
+      if (toggleEl) toggleEl.textContent = '☀️';
     } else {
       body.classList.remove('light');
-      if (toggle) toggle.textContent = '🌙';
+      if (toggleEl) toggleEl.textContent = '🌙';
     }
   }
 }
 
 function setThemeToggle() {
-  if (!toggle) return;
+  const toggleEl = getToggle();
+  if (!toggleEl) return;
 
-  toggle.onclick = () => {
+  toggleEl.onclick = () => {
     body.classList.toggle('light');
-    toggle.textContent = body.classList.contains('light') ? '☀️' : '🌙';
+    toggleEl.textContent = body.classList.contains('light') ? '☀️' : '🌙';
     localStorage.setItem(THEME_KEY, body.classList.contains('light') ? 'light' : 'dark');
   };
 }
