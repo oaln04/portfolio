@@ -10,12 +10,12 @@
 </head>
 <body>
 
-<<nav class="nav">
+<nav class="nav">
   <a href="../index.html" class="nav-brand">← Back</a>
   <button id="toggle" aria-label="Toggle theme">🌙</button>
 </nav>
 
-<<main class="project-page">
+<main class="project-page">
   <div class="project-hero">
     <span class="project-tag">Operating Systems</span>
     <h1>Linux Kernel Analysis</h1>
@@ -88,19 +88,11 @@
   </div>
 </main>
 
-<<footer>
+<footer>
   <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
 </footer>
 
-<script>
-const toggle = document.getElementById("toggle");
-const body = document.body;
-toggle.onclick = () => {
-  body.classList.toggle("light");
-  toggle.textContent = body.classList.contains("light") ? "☀️" : "🌙";
-};
-document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+<script src="../theme.js"></script>
 
 </body>
 </html>

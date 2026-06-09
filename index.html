@@ -12,12 +12,12 @@
 
 <body>
 
-<<nav class="nav">
+<nav class="nav">
   <div class="nav-brand">OAN</div>
   <button id="toggle" aria-label="Toggle theme">🌙</button>
 </nav>
 
-<<header class="hero">
+<header class="hero">
   <div class="hero-content">
     <div class="badge">Available for opportunities</div>
     <h1>Omar Al Nuaimi</h1>
@@ -161,83 +161,12 @@
   </div>
 </section>
 
-<<footer>
+<footer>
   <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
 </footer>
 
+<script src="theme.js"></script>
 <script>
-const toggle = document.getElementById("toggle");
-const body = document.body;
-const THEME_KEY = 'theme-preference';
-
-async function getLocationAndSetTheme() {
-  const manualPreference = localStorage.getItem(THEME_KEY);
-  let isDay = false;
-  
-  try {
-    // Get user's timezone
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    
-    // Get user's coordinates using IP geolocation API
-    const geoResponse = await fetch('https://ipapi.co/json/');
-    const geoData = await geoResponse.json();
-    const { latitude, longitude } = geoData;
-    
-    // Get sunrise/sunset times using Open-Meteo API (free, no key needed)
-    const today = new Date().toISOString().split('T')[0];
-    const sunResponse = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=sunrise,sunset&timezone=${timezone}&date=${today}`
-    );
-    const sunData = await sunResponse.json();
-    
-    if (sunData.daily && sunData.daily.sunrise && sunData.daily.sunset) {
-      const sunrise = new Date(sunData.daily.sunrise[0]);
-      const sunset = new Date(sunData.daily.sunset[0]);
-      const now = new Date();
-      
-      // Check if current time is between sunrise and sunset
-      isDay = now >= sunrise && now < sunset;
-    }
-  } catch (error) {
-    // Fallback: use simple time-based check (6 AM - 6 PM = daytime)
-    const hour = new Date().getHours();
-    isDay = hour >= 6 && hour < 18;
-    console.warn('Using fallback time-based theme detection:', error);
-  }
-  
-  // Apply theme based on whether it's day or night
-  if (!manualPreference) {
-    if (isDay) {
-      body.classList.add('light');
-      toggle.textContent = '☀️';
-    } else {
-      body.classList.remove('light');
-      toggle.textContent = '🌙';
-    }
-  } else {
-    // Respect stored preference and update icon
-    if (manualPreference === 'light') {
-      body.classList.add('light');
-      toggle.textContent = '☀️';
-    } else {
-      body.classList.remove('light');
-      toggle.textContent = '🌙';
-    }
-  }
-}
-
-// Set theme on page load
-getLocationAndSetTheme();
-
-toggle.onclick = () => {
-  body.classList.toggle("light");
-  toggle.textContent = body.classList.contains("light") ? "☀️" : "🌙";
-  // Remember user's manual preference
-  localStorage.setItem(THEME_KEY, body.classList.contains("light") ? 'light' : 'dark');
-};
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
