@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Linux Kernel Analysis — Omar Al Nuaimi</title>
   <script>
+  (function(){
+    try {
+      const k = 'theme-preference';
+      const t = localStorage.getItem(k);
       const html = document.documentElement;
       const bodyEl = document.body;
       function applyLight(on) {
@@ -16,16 +20,10 @@
           if (bodyEl) bodyEl.classList.remove('light');
         }
       }
-      if(t==='light') applyLight(true);
-      else if(t==='dark') applyLight(false);
-      else {
-        const hour = new Date().getHours();
-        applyLight(hour >= 6 && hour < 18);
-        const hour = new Date().getHours();
-        if (hour >= 6 && hour < 18) document.documentElement.classList.add('light');
-        else document.documentElement.classList.remove('light');
-      }
-    }catch(e){}
+      if (t === 'light') applyLight(true);
+      else if (t === 'dark') applyLight(false);
+      else applyLight(new Date().getHours() >= 6 && new Date().getHours() < 18);
+    } catch (e) {}
   })();
   </script>
   <link rel="stylesheet" href="../style.css"/>
