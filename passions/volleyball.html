@@ -4,8 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Volleyball — AURAK Men's Team | Omar Al Nuaimi</title>
+  <script>
+  (function(){
+    try{
+      const k='theme-preference';
+      const t=localStorage.getItem(k);
+      if(t==='light') {
+        document.documentElement.classList.add('light');
+      } else if(t==='dark') {
+        document.documentElement.classList.remove('light');
+      } else {
+        const hour = new Date().getHours();
+        if (hour >= 6 && hour < 18) document.documentElement.classList.add('light');
+        else document.documentElement.classList.remove('light');
+      }
+    }catch(e){}
+  })();
+  </script>
   <link rel="stylesheet" href="../style.css"/>
   <link rel="stylesheet" href="passions.css"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
