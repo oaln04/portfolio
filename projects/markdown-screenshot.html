@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Markdown Screenshot - Omar Al Nuaimi</title>
+  <script>
+  (function(){
+    try{
+      const k='theme-preference';
+      const t=localStorage.getItem(k);
+      const html = document.documentElement;
+      const bodyEl = document.body;
+      function applyLight(on) {
+        if (on) {
+          html.classList.add('light');
+          if (bodyEl) bodyEl.classList.add('light');
+        } else {
+          html.classList.remove('light');
+          if (bodyEl) bodyEl.classList.remove('light');
+        }
+      }
+      if(t==='light') applyLight(true);
+      else if(t==='dark') applyLight(false);
+      else {
+        const hour = new Date().getHours();
+        applyLight(hour >= 6 && hour < 18);
+      }
+    }catch(e){}
+  })();
+  </script>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-brand">← Back</a>
+  <button id="toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<main class="project-page">
+  <div class="project-hero">
+    <span class="project-tag">Desktop Utility</span>
+    <h1>Markdown Screenshot</h1>
+    <p class="project-subtitle">A lightweight Tauri screenshot app that copies AI-friendly Markdown image references by default.</p>
+  </div>
+
+  <div class="project-content">
+    <section class="project-section">
+      <h2>Overview</h2>
+      <p>Markdown Screenshot is a Windows-first desktop utility inspired by Greenshot and the Snipping Tool. It runs in the tray, opens a transparent region-selection overlay from a global hotkey, saves the selected screenshot locally, and copies a Markdown image reference to the clipboard.</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Technical Stack</h2>
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4>Shell</h4>
+          <p>Tauri v2</p>
+        </div>
+        <div class="spec-card">
+          <h4>Frontend</h4>
+          <p>React, TypeScript, Vite</p>
+        </div>
+        <div class="spec-card">
+          <h4>Native Core</h4>
+          <p>Rust, xcap, image, chrono</p>
+        </div>
+        <div class="spec-card">
+          <h4>Desktop APIs</h4>
+          <p>Tray, global hotkey, clipboard</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>v1 Features</h2>
+      <div class="info-box">
+        <h4>Phase 1 Core Loop</h4>
+        <ul>
+          <li><strong>Tray app</strong> Capture Region and Quit menu actions</li>
+          <li><strong>Hotkey</strong> Global Ctrl+Shift+S shortcut</li>
+          <li><strong>Overlay</strong> Fullscreen dimmed selection layer with drag rectangle</li>
+          <li><strong>Capture</strong> Real PNG screenshots saved under a screenshots folder</li>
+          <li><strong>Clipboard</strong> Copies <code>![screenshot](screenshots/YYYY-MM-DD_HH-mm-ss.png)</code></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Why It Exists</h2>
+      <p>Raw screenshots are useful, but pasting image data into AI tools can be heavy. This app keeps the image on disk and copies a short Markdown reference, making screenshots easier to share in prompts, notes, bug reports, and technical documentation.</p>
+    </section>
+  </div>
+
+  <div class="actions">
+    <a href="https://github.com/oaln04/markdown-screenshot" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View on GitHub ↗</a>
+  </div>
+</main>
+
+<footer>
+  <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
+</footer>
+
+<script src="../theme.js"></script>
+
+</body>
+</html>

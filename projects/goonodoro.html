@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Goonodoro - Omar Al Nuaimi</title>
+  <script>
+  (function(){
+    try{
+      const k='theme-preference';
+      const t=localStorage.getItem(k);
+      const html = document.documentElement;
+      const bodyEl = document.body;
+      function applyLight(on) {
+        if (on) {
+          html.classList.add('light');
+          if (bodyEl) bodyEl.classList.add('light');
+        } else {
+          html.classList.remove('light');
+          if (bodyEl) bodyEl.classList.remove('light');
+        }
+      }
+      if(t==='light') applyLight(true);
+      else if(t==='dark') applyLight(false);
+      else {
+        const hour = new Date().getHours();
+        applyLight(hour >= 6 && hour < 18);
+      }
+    }catch(e){}
+  })();
+  </script>
+  <link rel="stylesheet" href="../style.css"/>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-brand">← Back</a>
+  <button id="toggle" aria-label="Toggle theme">🌙</button>
+</nav>
+
+<main class="project-page">
+  <div class="project-hero">
+    <span class="project-tag">Full-Stack Web App</span>
+    <h1>Goonodoro</h1>
+    <p class="project-subtitle">A Pomodoro timer with verified accounts, tracked focus sessions, and a public leaderboard.</p>
+  </div>
+
+  <div class="project-content">
+    <section class="project-section">
+      <h2>Overview</h2>
+      <p>Goonodoro is a full-stack Pomodoro web app with a plain HTML, CSS, and JavaScript frontend hosted on Vercel and a production Express API hosted on Railway. The backend handles authentication, email verification, session tracking, and leaderboard data backed by PostgreSQL on Neon.</p>
+    </section>
+
+    <section class="project-section">
+      <h2>Technical Stack</h2>
+      <div class="specs-grid">
+        <div class="spec-card">
+          <h4>Frontend</h4>
+          <p>HTML, CSS, JavaScript, Vercel</p>
+        </div>
+        <div class="spec-card">
+          <h4>Backend</h4>
+          <p>Node.js, Express, JWT, bcrypt</p>
+        </div>
+        <div class="spec-card">
+          <h4>Database</h4>
+          <p>PostgreSQL on Neon</p>
+        </div>
+        <div class="spec-card">
+          <h4>Infrastructure</h4>
+          <p>Railway, Resend, GitHub</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>Backend Features</h2>
+      <div class="info-box">
+        <h4>Production API Surface</h4>
+        <ul>
+          <li><strong>Auth</strong> Register, verify email, login, bcrypt password hashing, JWT sessions</li>
+          <li><strong>Users</strong> Profile endpoint and unique username updates</li>
+          <li><strong>Sessions</strong> Authenticated Pomodoro completion tracking</li>
+          <li><strong>Leaderboard</strong> Public top-10 ranking without exposing email addresses</li>
+          <li><strong>Security</strong> CORS allowlist, route rate limiting, environment-based secrets</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2>What I Built</h2>
+      <p>I implemented the Express server, PostgreSQL schema, Neon connection flow, Railway deployment configuration, environment documentation, and frontend integration. I also fixed production deployment issues around Railway proxy headers, moved email verification to Resend, and added the sign-up, login, lifetime-session, and leaderboard flows to the frontend.</p>
+    </section>
+  </div>
+
+  <div class="actions">
+    <a href="https://goonodoro.oaln04.xyz" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Live App ↗</a>
+    <a href="https://github.com/oaln04/goonodoro" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Frontend Repo ↗</a>
+    <a href="https://github.com/oaln04/goonodoro-backend" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Backend Repo ↗</a>
+  </div>
+</main>
+
+<footer>
+  <p>Built with precision by Omar Al Nuaimi · <span id="year">2026</span></p>
+</footer>
+
+<script src="../theme.js"></script>
+
+</body>
+</html>

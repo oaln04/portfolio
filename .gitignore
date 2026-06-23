@@ -1,0 +1,7 @@
+.DS_Store
+Thumbs.db
+*.log
+tmp_resume_render/
+node_modules/
+dist/
+.env
