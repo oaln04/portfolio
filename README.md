@@ -52,11 +52,6 @@
 - **[World Clock](https://github.com/oaln04/world-clock)**  
   Real-time timezone app with live clock updates, day/night indicators, and responsive UI.
 
-### Desktop Software
-
-- **[Markdown Screenshot](https://github.com/oaln04/markdown-screenshot)**  
-  Tauri v2 desktop screenshot utility with a tray menu, global hotkey, region-selection overlay, Rust screenshot capture, local PNG saving, and Markdown clipboard output.
-
 ---
 
 ## Tech Stack
